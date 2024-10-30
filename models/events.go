@@ -4,16 +4,16 @@ import "time"
 
 type Event struct {
 	ID          int
-	Name        string
-	Description string
-	Location    string
-	DateTime    time.Time
+	Name        string    `binding:"required"`
+	Description string    `binding:"required"`
+	Location    string    `binding:"required"`
+	DateTime    time.Time `binding:"required"`
 	UserID      int
 }
 
 var events []Event = []Event{}
 
-func (e *Event) Save() { // method to save the event
+func (e *Event) CreateEvent() { // method of struct Event to create an event
 	// later add it to the database
 	events = append(events, *e)
 }
